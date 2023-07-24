@@ -13,6 +13,7 @@ import { AdminComponent } from './Components/admin/admin.component';
 import { AddProductComponent } from './Components/add-product/add-product.component';
 import { HomeAdminComponent } from './Components/home-admin/home-admin.component';
 
+
 const routes: Routes = [
   {path:'',component:HomeComponent},
   {path:'productInfo/:productId',component:ProductinfoComponent},
@@ -26,14 +27,14 @@ const routes: Routes = [
   {path:'admin',  component:AdminComponent},
   {path:'addproduct',  component:AddProductComponent},
   {path:'home-admin',  component:HomeAdminComponent},
-  
+
 
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  
- 
+
+
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

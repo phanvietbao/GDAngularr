@@ -11,7 +11,7 @@ import { cart } from './Interface/ICart';
   providedIn: 'root',
 })
 export class WebApiService {
-  
+
   url = 'http://localhost:4000/api/';
   private baseUrl = 'http://localhost:4000/api/users/login';
   constructor(private http: HttpClient,private router:Router) {}
@@ -32,7 +32,7 @@ export class WebApiService {
   getSubCategory(): Observable<ISubcategory[]> {
     return this.http.get<ISubcategory[]>( 'http://localhost:4000/api/categories');
   }
-  
+
 
   // getRegisterData(): Observable<IRegister[]> {
   //   return this.http.get<IRegister[]>(this.url + '/');
@@ -47,7 +47,7 @@ export class WebApiService {
     birthday: Number,
     password: string,
     password_confirmation: string,
-  
+
   ): Observable<any> {
     const url = 'http://localhost:4000/api/users/register'; // URL đến mock API
     const body = {
@@ -90,7 +90,7 @@ export class WebApiService {
   //       console.log('Data entered in Database Successfully !')
   //     );
   // }
- 
+
   //updating boolean value of addedtocart in table
   UpdateProduct(val: IProduct) {
     return this.http.put('http://localhost:4000/api/products/' + val.id, val);
@@ -151,9 +151,9 @@ export class WebApiService {
         }
       });
   }
- 
-  
-  
+
+
+
   removeToCart(cartId: number) {
     return this.http.delete('http://localhost:4000/api/users/carts' + cartId);
   }
@@ -206,5 +206,13 @@ export class WebApiService {
       productPrice: productPrice,
       productQuantity: productQuantity,
     });
+  }
+  private apiUrl = 'http://localhost:4000/api/reviews';
+  getReviews() {
+    return this.http.get<any[]>(this.apiUrl);
+  }
+
+  addReview(review: any) {
+    return this.http.post<any>(this.apiUrl, review);
   }
 }

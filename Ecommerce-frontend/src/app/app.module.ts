@@ -30,6 +30,7 @@ import { AddProductComponent } from './Components/add-product/add-product.compon
 import { HomeAdminComponent } from './Components/home-admin/home-admin.component';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,15 +43,16 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
     LoginComponent,
     RegisterComponent,
     AdminComponent,
-  
+
     TrackDetailsComponent,
     CheckoutComponent,
     AboutComponent,
     ContactComponent,
     AddProductComponent,
     HomeAdminComponent,
-    
-        
+
+
+
   ],
   imports: [
     BrowserModule,
@@ -65,7 +67,7 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
     ReactiveFormsModule,
     RouterModule,
     MatSlideToggleModule,
-    
+
   ],
   providers: [WebApiService,{
     provide: HTTP_INTERCEPTORS,

@@ -13,7 +13,10 @@ import { WebApiService } from 'src/app/web-api.service';
   styleUrls: ['./productinfo.component.css']
 })
 export class ProductinfoComponent implements OnInit {
-
+  rating : number | any;
+  comment : string | any;
+  reviews: any[] = [];
+// review
   p:any;
   productQuantity:number=1;
   productData:any;
@@ -29,7 +32,7 @@ export class ProductinfoComponent implements OnInit {
       this.loader=false;
       console.log(this.productData);
     });
-  
+
     this.api.getSubCategory().subscribe((data2:ISubcategory[]) =>{
       this.subCategory=data2;
       this.loader=false;
@@ -42,6 +45,7 @@ export class ProductinfoComponent implements OnInit {
       this.loader=false;
       console.log(this.result)
     })
+    this.getReviews(); // review
   }
  //added to cart calling from cart service
  addtocart(dt:IProduct){
@@ -98,4 +102,18 @@ updateQuantity() {
   this.http.put('http://localhost:4000/api/products', { quantity: this.quantity }).subscribe();
 }
 
+
+
+getReviews() {
+  this.api.getReviews()
+    .subscribe(reviews => this.reviews = reviews);
+}
+
+addReview(rating: number, comment: string) {
+  const newReview = { rating, comment };
+  this.api.addReview(newReview)
+    .subscribe(review => {
+      this.reviews.push(review);
+    });
+}
 }

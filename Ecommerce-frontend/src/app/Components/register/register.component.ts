@@ -25,7 +25,7 @@ export class RegisterComponent {
 
     this.userService.register(this.username, this.email, this.full_name, this.phone,this.address,this.gender,this.birthday, this.password,this.password_confirmation).subscribe(
       (response) => {
-        this.router.navigate(['/loginn'])
+        this.router.navigate(['/login'])
 
       },
       (error) => {
